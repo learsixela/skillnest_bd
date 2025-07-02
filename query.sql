@@ -1,10 +1,14 @@
--- sentenciasclientes
+-- sentencias clientes
+use java0078;
+
+-- eliminar la tabla si existe
+DROP TABLE IF EXISTS pedidos;
+DROP TABLE IF EXISTS clientes;
 
 CREATE TABLE clientes (
     id INT PRIMARY KEY, 
     nombre VARCHAR(100) NOT NULL,
-    correo VARCHAR(100) UNIQUE,
-    rut VARCHAR(100) UNIQUE
+    correo VARCHAR(100) UNIQUE
 );
 
 CREATE TABLE pedidos (
