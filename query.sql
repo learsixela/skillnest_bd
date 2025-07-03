@@ -41,3 +41,62 @@ INSERT INTO pedidos (descripcion, cliente_id) VALUES
 ('Suscripción anual a software', 2),
 ('Decoración de jardín', 5),
 ('Mantenimiento de vehículo', 6);
+
+
+-- SELECT consultar datos
+select * from java0078.clientes;
+select * from pedidos;
+select nombre from clientes;
+select nombre, correo  from clientes;
+select descripcion, id, cliente_id from pedidos;-- en el orden de columnas especifico
+
+-- WHERE: permite realizar filtros al consultar registros
+-- select columnas from tabla WHERE restriccion;
+select nombre, correo -- * 
+from clientes
+where id = 5;
+
+-- Where compuesto
+select nombre, correo 
+from clientes
+where nombre = 'camila Soto'
+;
+
+-- LIKE  '%terminar' 'inicio%' '%entre%'
+select nombre, correo 
+from clientes
+where correo LIKE '%@gmail.com'
+and (nombre LIKE 'An%' or nombre LIKE 'D%' or nombre LIKE 'C%')
+;
+select nombre, correo 
+from clientes
+where CORREO like '%gmail.com'
+AND (NOMBRE LIKE "AN%" OR NOMBRE LIKE "C%");
+
+-- < > = LIKE IN between
+select * from pedidos
+where id >= 3;
+
+select * from pedidos
+where id IN (2,4,6,8,10,12,14);
+
+select * from pedidos
+where id  between 3 and 17;-- considerando los extremos trae todo los registros
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
