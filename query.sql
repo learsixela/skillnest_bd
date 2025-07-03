@@ -84,6 +84,77 @@ select * from pedidos
 where id  between 3 and 17;-- considerando los extremos trae todo los registros
 
 
+/**
+JOINS: permiten combinar registros de dos o más tablas
+**/
+
+select * from clientes; -- Tabla B
+select * from pedidos;-- fk TABLA A
+
+-- INNER JOIN
+select * 
+from pedidos p
+INNER JOIN clientes cli
+ON p.cliente_id = cli.id
+;
+
+select * 
+from clientes c 
+INNER JOIN pedidos p
+ON c.id = p.cliente_id 
+;
+
+select p.id, p.descripcion, c.nombre
+from clientes c 
+INNER JOIN pedidos p
+ON c.id = p.cliente_id 
+;
+
+-- LEFT JOIN
+select * 
+from pedidos p
+LEFT JOIN clientes cli
+ON p.cliente_id = cli.id
+;
+
+INSERT INTO pedidos (descripcion) VALUES
+('Pedido de libros demo');
+
+select * 
+from pedidos p
+LEFT JOIN clientes cli
+ON p.cliente_id = cli.id
+where  p.cliente_id is null
+;
+
+-- Right JOIN
+select * 
+from pedidos p 
+Right JOIN clientes cli
+ON p.cliente_id = cli.id
+;
+
+select * 
+from pedidos p 
+Right JOIN clientes cli
+ON p.cliente_id = cli.id
+where p.cliente_id IS NULL
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
