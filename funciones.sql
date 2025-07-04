@@ -6,19 +6,21 @@
 -- FUNCIONES DE TEXTO APLICADAS A CLIENTES Y PEDIDOS
 
 -- CONCAT
-SELECT CONCAT(nombre, ' - ', correo) AS cliente_info FROM clientes;
+SELECT nombre, correo FROM clientes;
+SELECT nombre, correo, CONCAT(nombre,' - ', correo) AS cliente_info FROM clientes;
 
 -- CONCAT_WS
-SELECT CONCAT_WS(' | ', nombre, correo) AS cliente_info FROM clientes;
+SELECT CONCAT_WS(' - ', nombre, correo, id) AS cliente_info FROM clientes;
 
--- LENGTH
+-- LENGTH: cuenta los caracteres, incluye los espacio
 SELECT nombre, LENGTH(nombre) AS largo_nombre FROM clientes;
+select id, length(id) from pedidos;
 
--- TRIM
-SELECT TRIM('   Texto con espacios   ') AS texto_limpio;
+-- TRIM: 
+SELECT TRIM('                             Texto                  con espacios   ') AS texto_limpio;
 
 -- UPPER
-SELECT UPPER(nombre) AS nombre_mayuscula FROM clientes;
+SELECT UPPER(nombre) AS nombre_mayuscula FROM clientes; 
 
 -- LOWER
 SELECT LOWER(correo) AS correo_minuscula FROM clientes;
@@ -28,23 +30,26 @@ SELECT REPLACE(correo, '.com', '.cl') AS correo_chileno FROM clientes;
 
 -- SUBSTRING
 SELECT SUBSTRING(nombre, 1, 3) AS iniciales FROM clientes;
+SELECT SUBSTRING(nombre, 2, 5) AS iniciales FROM clientes;
 
 -- FUNCIONES NUMÉRICAS
 
 -- ABS
 SELECT ABS(-10) AS valor_absoluto;
 
--- MOD
+-- MOD(modulo o resto de la division)
 SELECT id, MOD(id, 2) AS es_par FROM pedidos;
 
--- RAND
+-- RAND: numero aleatorio entre 0 y 1 (min y max)
 SELECT RAND() AS numero_aleatorio;
+SELECT floor(RAND()*10) + 1 AS numero_aleatorio;
 
--- ROUND
+
+-- ROUND: redondea con cantidad de decimales
 SELECT ROUND(3.14159, 2) AS pi_redondeado;
 
 -- SQRT
-SELECT SQRT(16) AS raiz_cuadrada;
+SELECT SQRT(25) AS raiz_cuadrada;
 
 -- CONSULTA COMBINADA DE FUNCIONES
 SELECT 
