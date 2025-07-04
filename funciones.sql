@@ -59,3 +59,49 @@ SELECT
     UPPER(nombre) AS nombre_mayus,
     REPLACE(correo, '@', ' [at] ') AS correo_protegido
 FROM clientes;
+
+
+-- GROUP BY
+SELECT * FROM clientes;
+select * from pedidos;
+
+select cliente_id, count(cliente_id) as cantidad_pedidos
+from pedidos
+GROUP BY cliente_id;
+
+select cliente_id, count(cliente_id) as cantidad_pedidos
+from pedidos
+GROUP BY cliente_id
+having count(cliente_id) > 1
+;
+
+/** ORDER BY: por default asc 
+*/
+SELECT * FROM clientes;
+select * from pedidos;
+
+SELECT * FROM clientes
+ORDER BY nombre asc -- asc/desc
+;
+
+SELECT correo, nombre 
+FROM clientes
+ORDER BY 2 desc
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
