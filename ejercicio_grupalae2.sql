@@ -1,0 +1,1 @@
+CREATE SCHEMA `ejercicio_grupalae2` ;

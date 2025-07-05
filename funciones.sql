@@ -90,6 +90,38 @@ ORDER BY 2 desc
 ;
 
 
+select p.id, p.descripcion, c.nombre
+from clientes c 
+INNER JOIN pedidos p
+ON c.id = p.cliente_id 
+ORDER BY p.descripcion asc, 3 asc
+;
+
+/**
+LIMIT y OFFSET
+**/
+
+select p.id, p.descripcion, c.nombre
+from clientes c 
+INNER JOIN pedidos p
+ON c.id = p.cliente_id 
+ORDER BY p.descripcion asc, 3 asc
+LIMIT 4
+;
+ -- offset no considera el numero de registro
+select p.id, p.descripcion, c.nombre
+from clientes c 
+INNER JOIN pedidos p
+ON c.id = p.cliente_id 
+ORDER BY p.descripcion desc, 3 asc
+LIMIT 4 OFFSET 3;
+;
+
+-- paginacion 
+/*SET @pagina=2;
+tamaño
+offset desde donde
+*/
 
 
 
