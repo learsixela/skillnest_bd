@@ -75,17 +75,20 @@ CREATE TABLE ciudades(
 	id INT PRIMARY KEY auto_increment,         -- 2
 	nombre VARCHAR(100) NOT NULL -- Osorno
 );
+INSERT INTO `java0078`.`ciudades` (`nombre`) VALUES ('Santiago');
 
 
 CREATE TABLE usuarios (
     id INT PRIMARY KEY auto_increment,
     nombre VARCHAR(100) NOT NULL,
-    edad INT CHECK (edad >= 18),
+    edad INT CHECK (edad >= 18) ,
     correo VARCHAR(100) UNIQUE NOT NULL,
-    ciudad_id VARCHAR(100), -- 2
+    ciudad_id INT, -- 2
     estado VARCHAR(100) DEFAULT 'INACTIVO',
 	foreign key (ciudad_id) references ciudades(id)
 );
+
+
 
 -- ================================
 -- TRANSACCIONES
