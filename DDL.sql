@@ -63,4 +63,18 @@ ADD INDEX idx_nombre (nombre_completo);
 -- 10. Renombrar la tabla a 'trabajadores'
 RENAME TABLE empleados TO trabajadores;
 
--- 11. drop y truncate
+-- 11. insert en ambas tablas
+ALTER TABLE departamentos
+modify column ubicacion VARCHAR(100) not null;
+
+-- departamentos
+
+INSERT INTO departamentos (nombre, ubicacion)
+values ('Informatica','Piso -1'),('Contabilidad','Piso 2'),('Recurso Humanos','Piso 1')
+;
+
+INSERT INTO trabajadores (nombre_completo)
+values ('Luis Romero'),('Papa Noel'),('Patricia Soto'),('Juan Romero'),('Pepe Lota'),('Mama Noel');
+
+
+-- 12.  truncate y drop table
