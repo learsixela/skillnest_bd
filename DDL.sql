@@ -1,3 +1,5 @@
+use java0078;
+
 -- 1. Crear la tabla base
 CREATE TABLE empleados (
     id INT PRIMARY KEY,                   -- Identificador único
@@ -23,15 +25,21 @@ CHANGE COLUMN nombre nombre_completo VARCHAR(100);
 ALTER TABLE empleados
 MODIFY COLUMN salario DECIMAL(12,2);
 
+ALTER TABLE empleados
+MODIFY COLUMN nombre_completo VARCHAR(50) NOT NULL;
+
+ALTER TABLE empleados
+MODIFY COLUMN id INT auto_increment; -- no se necesita volver agregar PK
+
 -- 6. Agregar una columna 'estado' con valor por defecto
 ALTER TABLE empleados
 ADD COLUMN estado VARCHAR(20) DEFAULT 'activo';
 
 -- 7. Agregar columna 'creado_en' con valor por defecto actual
 ALTER TABLE empleados
-ADD COLUMN creado_en DATETIME DEFAULT CURRENT_TIMESTAMP;
+ADD COLUMN creado_en DATETIME DEFAULT CURRENT_TIMESTAMP; -- con que fecha_hora es insertado UTC?
 
--- 8. Agregar columna 'departamento_id' y clave foránea
+-- 8. Agregar columna 'departamento_id' y clave foránea FK
 ALTER TABLE empleados
 ADD COLUMN departamento_id INT;
 
@@ -43,6 +51,7 @@ CREATE TABLE departamentos (
     presupuesto DECIMAL(12,2) DEFAULT 0.00     -- Presupuesto asignado
 );
 
+-- 8.2 solo realizar si existe la tabla a relacionar
 ALTER TABLE empleados
 ADD CONSTRAINT fk_departamento
 FOREIGN KEY (departamento_id) REFERENCES departamentos(id);
@@ -53,3 +62,5 @@ ADD INDEX idx_nombre (nombre_completo);
 
 -- 10. Renombrar la tabla a 'trabajadores'
 RENAME TABLE empleados TO trabajadores;
+
+-- 11. drop y truncate
