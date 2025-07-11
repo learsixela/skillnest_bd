@@ -54,7 +54,7 @@ CREATE TABLE departamentos (
 -- 8.2 solo realizar si existe la tabla a relacionar
 ALTER TABLE empleados
 ADD CONSTRAINT fk_departamento
-FOREIGN KEY (departamento_id) REFERENCES departamentos(id);
+FOREIGN KEY (departamento_id) REFERENCES departamentos(id);--  on delete cascade;
 
 -- 9. Crear un índice sobre la columna 'nombre_completo'
 ALTER TABLE empleados
